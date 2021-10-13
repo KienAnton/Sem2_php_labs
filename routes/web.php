@@ -26,3 +26,4 @@ Route::get('/data-handle/form', [DataHandleController::class, 'handleForm']);
 Route::get('admin/layout/home', [LayoutController::class, 'getLayout']);
 Route::get('admin/layout/form', [LayoutController::class, 'getForm']);
 Route::get('admin/layout/table', [LayoutController::class, 'getTable']);
+
