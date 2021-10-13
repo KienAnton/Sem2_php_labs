@@ -21,7 +21,7 @@ Route::get('/', [DemoController::class, 'helloworld']);
 Route::get('/data-handle/{id}/path', [DataHandleController::class, 'handlePathVariable']);
 Route::get('/data-handle/query-string', [DataHandleController::class, 'handleQueryString']);
 Route::get('/data-handle/form', [DataHandleController::class, 'handleForm']);
-Route::get('/data-handle/form', [DataHandleController::class, 'handleForm']);
+Route::post('/data-handle/form', [DataHandleController::class, 'processForm']);
 
 Route::get('admin/layout/home', [LayoutController::class, 'getLayout']);
 Route::get('admin/layout/form', [LayoutController::class, 'getForm']);

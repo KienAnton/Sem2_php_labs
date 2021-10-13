@@ -10,6 +10,7 @@
 <body>
     <h1>Form</h1>
     <form action="/data-handle/form" method="post">
+        @csrf
         <div>
             evenName <input type="text" name="evenName">
         </div>
@@ -31,7 +32,7 @@
         </div>
 
         <div>
-            ticketPrice <input type="text" name="ticketPrice">
+            ticketPrice <input type="number" name="ticketPrice">
         </div>
 
         <div>
