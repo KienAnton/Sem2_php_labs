@@ -4,6 +4,7 @@ use App\Http\Controllers\AccountController;
 use App\Http\Controllers\DataHandleController;
 use App\Http\Controllers\DemoController;
 use App\Http\Controllers\LayoutController;
+use App\Http\Controllers\TickketController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,3 +28,7 @@ Route::get('admin/layout/home', [LayoutController::class, 'getLayout']);
 Route::get('admin/layout/form', [LayoutController::class, 'getForm']);
 Route::get('admin/layout/table', [LayoutController::class, 'getTable']);
 
+Route::post('admin/layout/form', [LayoutController::class, 'formProcess']);
+
+
+Route::resource('tickkets' , TickketController::class);

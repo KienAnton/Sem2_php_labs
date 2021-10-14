@@ -11,9 +11,9 @@
     <h1>Form</h1>
         <p>Even name{{$eventName}}</p>
         <p>Band name {{$bandNames}}</p>
-        <p>Start {{$startDate}}</p>
-        <p>Band name {{$endDate}}</p>
-        <p>Price {{$portfolio}}</p>
+        <p>Start date {{$startDate}}</p>
+        <p>End date {{$endDate}}</p>
+        <p>Portfolio {{$portfolio}}</p>
         <p>Ticket price {{$ticketPrice}}</p>
 
         @switch($status)
