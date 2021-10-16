@@ -36,18 +36,28 @@
                                     <th>portfolio</th>
                                     <th>Ticket price</th>
                                     <th>Status</th>
+                                    <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td>Zenaida Frank</td>
-                                    <td>Software Engineer</td>
-                                    <td>New York</td>
-                                    <td>63</td>
-                                    <td>2010/01/04</td>
-                                    <td>$125,250</td>
-                                    <td>$125,250</td>
-                                </tr>
+                                @foreach($tickkets as $tickket)
+                                    <tr>
+                                        <td>{{$tickket->eventName}}</td>
+                                        <td>{{$tickket->bandName}}</td>
+                                        <td>{{$tickket->startDate}}</td>
+                                        <td>{{$tickket->endDate}}</td>
+                                        <td>{{$tickket->portfolio}}</td>
+                                        <td>{{$tickket->ticketPrice}}</td>
+                                        <td>{{$tickket->status}}</td>
+                                        <td>
+                                            <div class="row">
+                                                <div class="col-3"> <a href="{{ route('tickkets.show', $tickket->id) }}"><i class="fa fa-info-circle"></i></a></div>
+                                                <div class="col-3"><a href=""><i class="fa fa-edit"></i></a></div>
+                                                <div class="col-3"><a href=""><i class="fa fa-trash-o"></i></a></div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @endforeach
                                 </tbody>
                             </table>
                         </div>

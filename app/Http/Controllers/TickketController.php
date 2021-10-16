@@ -9,12 +9,12 @@ class TickketController extends Controller
 {
     public function index() {
         $tickkets = Tickket::latest()->get();
-        return view('admin.demo.form', compact('tickkets'));
+        return view('admin.demo.table', compact('tickkets'));
     }
 
-//    public function show(Tickket $tickket) {
-//        return view('products.show', ['product' =>  $tickket]);
-//    }
+    public function show(Tickket $tickket) {
+        return view('tickkets.show',['tickket' =>  $tickket]);
+    }
 
     public function create() {
         return view('admin.demo.form');
@@ -39,18 +39,26 @@ class TickketController extends Controller
 
     public function store(Request $request) {
         $data = $request->validate([
-            'eventName' => 'required',
+            'eventName' => 'required|min:20',
             'bandName' => 'required',
-            'startDate' => 'required',
-            'endDate'=> 'required',
+            'startDate' => 'required|after:today',
+            'endDate'=> 'required|after:startDate',
             'portfolio'=> 'required',
-            'ticketPrice'=> 'required',
-            'status'=> 'required'
-        ]);
+            'ticketPrice'=> 'required|gt:1',
+            'status'=> 'required|gt:1|lt:3'
+        ],
+        [ 'eventName.required' => 'Please enter event name',
+          'bandName.required' => 'Please enter band name',
+          'startDate.required' => 'Please enter start day',
+          'endDate.required' => 'Please enter end day',
+          'portfolio.required' => 'Please enter portfolio',
+          'ticketPrice.required' => 'Please enter ticketPrice',
+          'status.required' => 'Please enter status'
+        ]
+        );
 
         Tickket::create($data);
-
-        return redirect()->route('admin.demo.table')->with('success', 'Tickket has been added!');
+        return redirect()->route('tickkets.index');
     }
 
     public function destroy(Tickket $tickket) {

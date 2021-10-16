@@ -2,7 +2,7 @@
 @section('page-title', 'Form page | Hello World')
 
 @section('content')
-{{--   form--}}
+    {{--   form--}}
     <div class="col-md-12 col-sm-12 ">
         <div class="x_panel">
             <div class="x_title">
@@ -11,7 +11,8 @@
                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                     </li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                           aria-expanded="false"><i class="fa fa-wrench"></i></a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a class="dropdown-item" href="#">Settings 1</a>
                             </li>
@@ -26,72 +27,110 @@
             </div>
             <div class="x_content">
                 <br>
-                <form action="{{route('tickkets.store') }}"  data-parsley-validate="" class="form-horizontal form-label-left" method="post">
+                <form action="{{route('tickkets.store')}}" data-parsley-validate=""
+                      class="form-horizontal form-label-left" method="post">
                     @csrf
-{{--                    Event Name--}}
+
+                    {{--                    @if ($errors->any())--}}
+                    {{--                        <div class="card-body">--}}
+                    {{--                            <div class="alert alert-danger">--}}
+                    {{--                                Please fix errors below and try again.--}}
+                    {{--                                <ul>--}}
+                    {{--                                    @foreach ($errors->all() as $error)--}}
+                    {{--                                        <li>{{ $error }}</li>--}}
+                    {{--                                    @endforeach--}}
+                    {{--                                </ul>--}}
+                    {{--                            </div>--}}
+                    {{--                        </div>--}}
+                    {{--                    @endif--}}
+
+                    {{--                    Event Name--}}
                     <div class="item form-group">
-                        <label class="col-form-label col-md-3 col-sm-3 label-align">Event name<span class="required">*</span>
+                        <label class="col-form-label col-md-3 col-sm-3 label-align">Event name<span
+                                class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 ">
                             <input type="text" name="eventName" class="form-control ">
+                            @error('eventName')
+                            <div class="text-danger">* {{ $message }}</div>
+                            @enderror
                         </div>
                     </div>
-{{--                    /Event name--}}
+                    {{--                    /Event name--}}
 
-{{--                    Band name--}}
+                    {{--                    Band name--}}
                     <div class="item form-group">
-                        <label class="col-form-label col-md-3 col-sm-3 label-align">Band name <span class="required">*</span>
+                        <label class="col-form-label col-md-3 col-sm-3 label-align">Band name <span
+                                class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 ">
                             <input type="text" id="last-name" name="bandName" class="form-control">
+                            @error('bandName')
+                            <div class="text-danger">* {{ $message }}</div>
+                            @enderror
                         </div>
                     </div>
-{{--                    /Band name--}}
+                    {{--                    /Band name--}}
 
-{{--                    Start date--}}
+                    {{--                    Start date--}}
                     <div class="item form-group">
                         <label class="col-form-label col-md-3 col-sm-3 label-align">Start date</label>
                         <div class="col-md-6 col-sm-6">
-                                <input class="form-control" type="date" name="startDate">
+                            <input class="form-control" type="date" name="startDate">
+                            @error('startDate')
+                            <div class="text-danger">* {{ $message }}</div>
+                            @enderror
                         </div>
                     </div>
-{{--                    /Start date--}}
+                    {{--                    /Start date--}}
 
-{{--                    End date--}}
+                    {{--                    End date--}}
                     <div class="item form-group">
                         <label class="col-form-label col-md-3 col-sm-3 label-align">End date</label>
                         <div class="col-md-6 col-sm-6">
                             <input class="form-control" type="date" name="endDate">
+                            @error('endDate')
+                            <div class="text-danger">* {{ $message }}</div>
+                            @enderror
                         </div>
                     </div>
-{{--                    /End date--}}
+                    {{--                    /End date--}}
 
-{{--                    portfolio--}}
+                    {{--                    portfolio--}}
                     <div class="item form-group">
                         <label class="col-form-label col-md-3 col-sm-3 label-align">Portfolio</label>
                         <div class="col-md-6 col-sm-6">
                             <input class="form-control" type="text" name="portfolio">
+                            @error('portfolio')
+                            <div class="text-danger">* {{ $message }}</div>
+                            @enderror
                         </div>
                     </div>
-{{--                    /portfolio--}}
+                    {{--                    /portfolio--}}
 
-{{--                    ticketPrice--}}
+                    {{--                    ticketPrice--}}
                     <div class="item form-group">
                         <label class="col-form-label col-md-3 col-sm-3 label-align">Ticket price</label>
                         <div class="col-md-6 col-sm-6">
                             <input class="form-control" type="number" name="ticketPrice">
+                            @error('ticketPrice')
+                            <div class="text-danger">* {{ $message }}</div>
+                            @enderror
                         </div>
                     </div>
-{{--                    /ticketPrice--}}
+                    {{--                    /ticketPrice--}}
 
-{{--                    status--}}
+                    {{--                    status--}}
                     <div class="item form-group">
                         <label class="col-form-label col-md-3 col-sm-3 label-align">Ticket price</label>
                         <div class="col-md-6 col-sm-6">
                             <input class="form-control" type="number" name="status">
+                            @error('status')
+                            <div class="text-danger">* {{ $message }}</div>
+                            @enderror
                         </div>
                     </div>
-{{--                    /status--}}
+                    {{--                    /status--}}
 
                     <div class="ln_solid"></div>
                     <div class="item form-group">
@@ -105,116 +144,130 @@
             </div>
         </div>
     </div>
-{{--    /form--}}
+    {{--    /form--}}
 
-{{--    ckeditor--}}
-<div class="col-md-12 col-sm-12 ">
-    <div class="x_panel">
-        <div class="x_title">
-            <h2>Text areas<small>Sessions</small></h2>
-            <ul class="nav navbar-right panel_toolbox">
-                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Settings 1</a>
-                        <a class="dropdown-item" href="#">Settings 2</a>
-                    </div>
-                </li>
-                <li><a class="close-link"><i class="fa fa-close"></i></a>
-                </li>
-            </ul>
-            <div class="clearfix"></div>
-        </div>
-        <div class="x_content">
-            <div id="alerts"></div>
-            <div class="btn-toolbar editor" data-role="editor-toolbar" data-target="#editor-one">
-                <div class="btn-group">
-                    <a class="btn dropdown-toggle" data-toggle="dropdown" title="Font"><i class="fa fa-font"></i><b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                    </ul>
-                </div>
-
-                <div class="btn-group">
-                    <a class="btn dropdown-toggle" data-toggle="dropdown" title="Font Size"><i class="fa fa-text-height"></i>&nbsp;<b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a data-edit="fontSize 5">
-                                <p style="font-size:17px">Huge</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a data-edit="fontSize 3">
-                                <p style="font-size:14px">Normal</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a data-edit="fontSize 1">
-                                <p style="font-size:11px">Small</p>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="btn-group">
-                    <a class="btn" data-edit="bold" title="Bold (Ctrl/Cmd+B)"><i class="fa fa-bold"></i></a>
-                    <a class="btn" data-edit="italic" title="Italic (Ctrl/Cmd+I)"><i class="fa fa-italic"></i></a>
-                    <a class="btn" data-edit="strikethrough" title="Strikethrough"><i class="fa fa-strikethrough"></i></a>
-                    <a class="btn" data-edit="underline" title="Underline (Ctrl/Cmd+U)"><i class="fa fa-underline"></i></a>
-                </div>
-
-                <div class="btn-group">
-                    <a class="btn" data-edit="insertunorderedlist" title="Bullet list"><i class="fa fa-list-ul"></i></a>
-                    <a class="btn" data-edit="insertorderedlist" title="Number list"><i class="fa fa-list-ol"></i></a>
-                    <a class="btn" data-edit="outdent" title="Reduce indent (Shift+Tab)"><i class="fa fa-dedent"></i></a>
-                    <a class="btn" data-edit="indent" title="Indent (Tab)"><i class="fa fa-indent"></i></a>
-                </div>
-
-                <div class="btn-group">
-                    <a class="btn" data-edit="justifyleft" title="Align Left (Ctrl/Cmd+L)"><i class="fa fa-align-left"></i></a>
-                    <a class="btn" data-edit="justifycenter" title="Center (Ctrl/Cmd+E)"><i class="fa fa-align-center"></i></a>
-                    <a class="btn" data-edit="justifyright" title="Align Right (Ctrl/Cmd+R)"><i class="fa fa-align-right"></i></a>
-                    <a class="btn" data-edit="justifyfull" title="Justify (Ctrl/Cmd+J)"><i class="fa fa-align-justify"></i></a>
-                </div>
-
-                <div class="btn-group">
-                    <a class="btn dropdown-toggle" data-toggle="dropdown" title="Hyperlink"><i class="fa fa-link"></i></a>
-                    <div class="dropdown-menu input-append">
-                        <input class="span2" placeholder="URL" type="text" data-edit="createLink">
-                        <button class="btn" type="button">Add</button>
-                    </div>
-                    <a class="btn" data-edit="unlink" title="Remove Hyperlink"><i class="fa fa-cut"></i></a>
-                </div>
-
-                <div class="btn-group">
-                    <a class="btn" title="Insert picture (or just drag &amp; drop)" id="pictureBtn"><i class="fa fa-picture-o"></i></a>
-                    <input type="file" data-role="magic-overlay" data-target="#pictureBtn" data-edit="insertImage">
-                </div>
-
-                <div class="btn-group">
-                    <a class="btn" data-edit="undo" title="Undo (Ctrl/Cmd+Z)"><i class="fa fa-undo"></i></a>
-                    <a class="btn" data-edit="redo" title="Redo (Ctrl/Cmd+Y)"><i class="fa fa-repeat"></i></a>
-                </div>
+    {{--    ckeditor--}}
+    <div class="col-md-12 col-sm-12 ">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Text areas<small>Sessions</small></h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                           aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">Settings 1</a>
+                            <a class="dropdown-item" href="#">Settings 2</a>
+                        </div>
+                    </li>
+                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
             </div>
+            <div class="x_content">
+                <div id="alerts"></div>
+                <div class="btn-toolbar editor" data-role="editor-toolbar" data-target="#editor-one">
+                    <div class="btn-group">
+                        <a class="btn dropdown-toggle" data-toggle="dropdown" title="Font"><i class="fa fa-font"></i><b
+                                class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        </ul>
+                    </div>
 
-            <div id="editor-one" class="editor-wrapper placeholderText" contenteditable="true"></div>
+                    <div class="btn-group">
+                        <a class="btn dropdown-toggle" data-toggle="dropdown" title="Font Size"><i
+                                class="fa fa-text-height"></i>&nbsp;<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a data-edit="fontSize 5">
+                                    <p style="font-size:17px">Huge</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a data-edit="fontSize 3">
+                                    <p style="font-size:14px">Normal</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a data-edit="fontSize 1">
+                                    <p style="font-size:11px">Small</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
 
-            <textarea name="descr" id="descr" style="display:none;"></textarea>
+                    <div class="btn-group">
+                        <a class="btn" data-edit="bold" title="Bold (Ctrl/Cmd+B)"><i class="fa fa-bold"></i></a>
+                        <a class="btn" data-edit="italic" title="Italic (Ctrl/Cmd+I)"><i class="fa fa-italic"></i></a>
+                        <a class="btn" data-edit="strikethrough" title="Strikethrough"><i
+                                class="fa fa-strikethrough"></i></a>
+                        <a class="btn" data-edit="underline" title="Underline (Ctrl/Cmd+U)"><i
+                                class="fa fa-underline"></i></a>
+                    </div>
 
-            <br>
+                    <div class="btn-group">
+                        <a class="btn" data-edit="insertunorderedlist" title="Bullet list"><i class="fa fa-list-ul"></i></a>
+                        <a class="btn" data-edit="insertorderedlist" title="Number list"><i
+                                class="fa fa-list-ol"></i></a>
+                        <a class="btn" data-edit="outdent" title="Reduce indent (Shift+Tab)"><i
+                                class="fa fa-dedent"></i></a>
+                        <a class="btn" data-edit="indent" title="Indent (Tab)"><i class="fa fa-indent"></i></a>
+                    </div>
 
-            <div class="ln_solid"></div>
+                    <div class="btn-group">
+                        <a class="btn" data-edit="justifyleft" title="Align Left (Ctrl/Cmd+L)"><i
+                                class="fa fa-align-left"></i></a>
+                        <a class="btn" data-edit="justifycenter" title="Center (Ctrl/Cmd+E)"><i
+                                class="fa fa-align-center"></i></a>
+                        <a class="btn" data-edit="justifyright" title="Align Right (Ctrl/Cmd+R)"><i
+                                class="fa fa-align-right"></i></a>
+                        <a class="btn" data-edit="justifyfull" title="Justify (Ctrl/Cmd+J)"><i
+                                class="fa fa-align-justify"></i></a>
+                    </div>
 
-            <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 ">Resizable Text area</label>
-                <div class="col-md-9 col-sm-9 ">
-                    <textarea class="resizable_textarea form-control" placeholder="This text area automatically resizes its height as you fill in more text courtesy of autosize-master it out..."></textarea>
+                    <div class="btn-group">
+                        <a class="btn dropdown-toggle" data-toggle="dropdown" title="Hyperlink"><i
+                                class="fa fa-link"></i></a>
+                        <div class="dropdown-menu input-append">
+                            <input class="span2" placeholder="URL" type="text" data-edit="createLink">
+                            <button class="btn" type="button">Add</button>
+                        </div>
+                        <a class="btn" data-edit="unlink" title="Remove Hyperlink"><i class="fa fa-cut"></i></a>
+                    </div>
+
+                    <div class="btn-group">
+                        <a class="btn" title="Insert picture (or just drag &amp; drop)" id="pictureBtn"><i
+                                class="fa fa-picture-o"></i></a>
+                        <input type="file" data-role="magic-overlay" data-target="#pictureBtn" data-edit="insertImage">
+                    </div>
+
+                    <div class="btn-group">
+                        <a class="btn" data-edit="undo" title="Undo (Ctrl/Cmd+Z)"><i class="fa fa-undo"></i></a>
+                        <a class="btn" data-edit="redo" title="Redo (Ctrl/Cmd+Y)"><i class="fa fa-repeat"></i></a>
+                    </div>
+                </div>
+
+                <div id="editor-one" class="editor-wrapper placeholderText" contenteditable="true"></div>
+
+                <textarea name="descr" id="descr" style="display:none;"></textarea>
+
+                <br>
+
+                <div class="ln_solid"></div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 ">Resizable Text area</label>
+                    <div class="col-md-9 col-sm-9 ">
+                        <textarea class="resizable_textarea form-control"
+                                  placeholder="This text area automatically resizes its height as you fill in more text courtesy of autosize-master it out..."></textarea>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-{{--    /ckeditor--}}
+    {{--    /ckeditor--}}
 @endsection
 

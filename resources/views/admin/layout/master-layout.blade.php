@@ -9,7 +9,7 @@
         <div class="col-md-3 left_col">
             <div class="left_col scroll-view">
                 <div class="navbar nav_title" style="border: 0;">
-                    <a href="/admin/layout/home" class="site_title"><i class="fa fa-paw"></i> <span>Hello World!</span></a>
+                    <a href="{{route('tickkets.index')}}" class="site_title"><i class="fa fa-paw"></i> <span>Hello World!</span></a>
                 </div>
 
                 <!-- menu profile quick info -->
